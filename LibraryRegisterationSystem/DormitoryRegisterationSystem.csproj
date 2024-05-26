@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B45A40C5-5854-40E0-987B-F88F70BBCE0E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>LibraryRegisterationSystem</RootNamespace>
-    <AssemblyName>LibraryRegisterationSystem</AssemblyName>
+    <RootNamespace>DormitoryRegisterationSystem</RootNamespace>
+    <AssemblyName>DormitoryRegisterationSystem</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

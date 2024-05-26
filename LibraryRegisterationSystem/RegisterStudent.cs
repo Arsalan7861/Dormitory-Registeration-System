@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace LibraryRegisterationSystem
+namespace DormitoryRegisterationSystem
 {
     public partial class RegisterStudent : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace LibraryRegisterationSystem
+﻿namespace DormitoryRegisterationSystem
 {
     partial class Students
     {
