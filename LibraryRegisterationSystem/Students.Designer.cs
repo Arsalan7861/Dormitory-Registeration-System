@@ -60,7 +60,7 @@
             this.label3.ForeColor = System.Drawing.Color.Tomato;
             this.label3.Location = new System.Drawing.Point(480, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 45);
+            this.label3.Size = new System.Drawing.Size(99, 43);
             this.label3.TabIndex = 17;
             this.label3.Text = "Students";
             // 
@@ -101,6 +101,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.studentsDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.studentsDataGridView.Location = new System.Drawing.Point(12, 158);
+            this.studentsDataGridView.MultiSelect = false;
             this.studentsDataGridView.Name = "studentsDataGridView";
             this.studentsDataGridView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -113,6 +114,7 @@
             this.studentsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.studentsDataGridView.RowHeadersWidth = 51;
             this.studentsDataGridView.RowTemplate.Height = 24;
+            this.studentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentsDataGridView.ShowCellErrors = false;
             this.studentsDataGridView.ShowCellToolTips = false;
             this.studentsDataGridView.ShowEditingIcon = false;
@@ -148,6 +150,7 @@
             this.searchButton.TabIndex = 31;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // backPicBox
             // 
@@ -175,6 +178,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1044, 571);
             this.Controls.Add(this.backPicBox);
             this.Controls.Add(this.exitPicBox);

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditStudents));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.countryComboBox = new System.Windows.Forms.ComboBox();
@@ -65,7 +65,7 @@
             this.label3.ForeColor = System.Drawing.Color.Tomato;
             this.label3.Location = new System.Drawing.Point(559, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 45);
+            this.label3.Size = new System.Drawing.Size(142, 43);
             this.label3.TabIndex = 19;
             this.label3.Text = "Edit Students";
             // 
@@ -284,18 +284,19 @@
             "Yemen",
             "Zambia",
             "Zimbabwe"});
-            this.countryComboBox.Location = new System.Drawing.Point(10, 569);
+            this.countryComboBox.Location = new System.Drawing.Point(47, 571);
             this.countryComboBox.Name = "countryComboBox";
             this.countryComboBox.Size = new System.Drawing.Size(168, 39);
             this.countryComboBox.Sorted = true;
             this.countryComboBox.TabIndex = 38;
+            this.countryComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.countryComboBox_Validating);
             // 
             // mPaymentLabel
             // 
             this.mPaymentLabel.AutoSize = true;
             this.mPaymentLabel.Font = new System.Drawing.Font("Microsoft Uighur", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mPaymentLabel.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.mPaymentLabel.Location = new System.Drawing.Point(4, 620);
+            this.mPaymentLabel.Location = new System.Drawing.Point(41, 622);
             this.mPaymentLabel.Name = "mPaymentLabel";
             this.mPaymentLabel.Size = new System.Drawing.Size(188, 43);
             this.mPaymentLabel.TabIndex = 37;
@@ -304,7 +305,7 @@
             // mPaymentTextBox
             // 
             this.mPaymentTextBox.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mPaymentTextBox.Location = new System.Drawing.Point(12, 668);
+            this.mPaymentTextBox.Location = new System.Drawing.Point(49, 670);
             this.mPaymentTextBox.Name = "mPaymentTextBox";
             this.mPaymentTextBox.Size = new System.Drawing.Size(169, 45);
             this.mPaymentTextBox.TabIndex = 36;
@@ -314,7 +315,7 @@
             this.countryLabel.AutoSize = true;
             this.countryLabel.Font = new System.Drawing.Font("Microsoft Uighur", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.countryLabel.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.countryLabel.Location = new System.Drawing.Point(47, 532);
+            this.countryLabel.Location = new System.Drawing.Point(84, 534);
             this.countryLabel.Name = "countryLabel";
             this.countryLabel.Size = new System.Drawing.Size(97, 43);
             this.countryLabel.TabIndex = 35;
@@ -325,7 +326,7 @@
             this.emailLabel.AutoSize = true;
             this.emailLabel.Font = new System.Drawing.Font("Microsoft Uighur", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailLabel.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.emailLabel.Location = new System.Drawing.Point(59, 438);
+            this.emailLabel.Location = new System.Drawing.Point(96, 440);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(73, 43);
             this.emailLabel.TabIndex = 34;
@@ -334,7 +335,7 @@
             // emailTextBox
             // 
             this.emailTextBox.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTextBox.Location = new System.Drawing.Point(10, 484);
+            this.emailTextBox.Location = new System.Drawing.Point(47, 486);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(169, 45);
             this.emailTextBox.TabIndex = 33;
@@ -344,7 +345,7 @@
             this.phoneLabel.AutoSize = true;
             this.phoneLabel.Font = new System.Drawing.Font("Microsoft Uighur", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phoneLabel.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.phoneLabel.Location = new System.Drawing.Point(16, 344);
+            this.phoneLabel.Location = new System.Drawing.Point(53, 346);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(162, 43);
             this.phoneLabel.TabIndex = 32;
@@ -353,7 +354,7 @@
             // phoneTextBox
             // 
             this.phoneTextBox.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneTextBox.Location = new System.Drawing.Point(12, 390);
+            this.phoneTextBox.Location = new System.Drawing.Point(49, 392);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(169, 45);
             this.phoneTextBox.TabIndex = 31;
@@ -363,7 +364,7 @@
             this.ageLabel.AutoSize = true;
             this.ageLabel.Font = new System.Drawing.Font("Microsoft Uighur", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ageLabel.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.ageLabel.Location = new System.Drawing.Point(59, 248);
+            this.ageLabel.Location = new System.Drawing.Point(96, 250);
             this.ageLabel.Name = "ageLabel";
             this.ageLabel.Size = new System.Drawing.Size(56, 43);
             this.ageLabel.TabIndex = 30;
@@ -372,7 +373,7 @@
             // ageTextBox
             // 
             this.ageTextBox.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ageTextBox.Location = new System.Drawing.Point(12, 296);
+            this.ageTextBox.Location = new System.Drawing.Point(49, 298);
             this.ageTextBox.Name = "ageTextBox";
             this.ageTextBox.Size = new System.Drawing.Size(169, 45);
             this.ageTextBox.TabIndex = 29;
@@ -382,7 +383,7 @@
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Uighur", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLabel.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.nameLabel.Location = new System.Drawing.Point(58, 151);
+            this.nameLabel.Location = new System.Drawing.Point(95, 153);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(76, 43);
             this.nameLabel.TabIndex = 28;
@@ -391,7 +392,7 @@
             // nameTextBox
             // 
             this.nameTextBox.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTextBox.Location = new System.Drawing.Point(11, 199);
+            this.nameTextBox.Location = new System.Drawing.Point(48, 201);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(169, 45);
             this.nameTextBox.TabIndex = 27;
@@ -445,7 +446,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Uighur", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Sienna;
+            this.label1.ForeColor = System.Drawing.Color.Green;
             this.label1.Location = new System.Drawing.Point(548, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(363, 37);
@@ -482,36 +483,38 @@
             this.studentsDataGridView.AllowUserToResizeRows = false;
             this.studentsDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.studentsDataGridView.CausesValidation = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Uighur", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.studentsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Uighur", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.studentsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.studentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Uighur", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.studentsDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
-            this.studentsDataGridView.Location = new System.Drawing.Point(224, 151);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Uighur", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.studentsDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            this.studentsDataGridView.Location = new System.Drawing.Point(243, 151);
+            this.studentsDataGridView.MultiSelect = false;
             this.studentsDataGridView.Name = "studentsDataGridView";
             this.studentsDataGridView.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Uighur", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.studentsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Uighur", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.studentsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.studentsDataGridView.RowHeadersWidth = 51;
             this.studentsDataGridView.RowTemplate.Height = 24;
+            this.studentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentsDataGridView.ShowCellErrors = false;
             this.studentsDataGridView.ShowCellToolTips = false;
             this.studentsDataGridView.ShowEditingIcon = false;
@@ -526,7 +529,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1248, 792);
+            this.ClientSize = new System.Drawing.Size(1267, 792);
             this.Controls.Add(this.studentsDataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.resetButton);

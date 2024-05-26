@@ -16,7 +16,7 @@ namespace LibraryRegisterationSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EditStudents());
+            Application.Run(new SignIn());
         }
     }
 }

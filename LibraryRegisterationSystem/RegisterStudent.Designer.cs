@@ -203,6 +203,8 @@
             // 
             // countryComboBox
             // 
+            this.countryComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.countryComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.countryComboBox.DropDownHeight = 90;
             this.countryComboBox.DropDownWidth = 250;
             this.countryComboBox.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -410,6 +412,7 @@
             this.countryComboBox.Size = new System.Drawing.Size(168, 48);
             this.countryComboBox.Sorted = true;
             this.countryComboBox.TabIndex = 26;
+            this.countryComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.countryComboBox_Validating);
             // 
             // registerButton
             // 
@@ -471,7 +474,6 @@
             this.Name = "RegisterStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterStudent";
-            this.Load += new System.EventHandler(this.RegisterStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.exitPicBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backPicBox)).EndInit();
             this.ResumeLayout(false);

@@ -18,27 +18,23 @@ namespace LibraryRegisterationSystem
             InitializeComponent();
         }
 
-        private void exitPicBox_Click(object sender, EventArgs e)
+        private void exitPicBox_Click(object sender, EventArgs e)// Exits the application
         {
             Application.Exit();
         }
 
-        private void backPicBox_Click(object sender, EventArgs e)
+        private void backPicBox_Click(object sender, EventArgs e)// Goes back to the main menu
         {
             Main main = new Main();
             main.Show();
             this.Hide();
         }
-
+        // Connection string for connecting to database
         SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-G1HGNHG3\SQLEXPRESS;Initial Catalog=DormitoryRegisterationSystem;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-        private void RegisterStudent_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void registerButton_Click(object sender, EventArgs e)
+        private void registerButton_Click(object sender, EventArgs e)// Button when clicked adds the student into the databse
         {
-            if (nameTextBox.Text == "" || ageTextBox.Text == "" || phoneTextBox.Text == "" || emailTextBox.Text == "" || countryComboBox.Text == "" || mPaymentTextBox.Text == "")
+            if (nameTextBox.Text == "" || ageTextBox.Text == "" || phoneTextBox.Text == "" || emailTextBox.Text == "" || countryComboBox.Text == "" || mPaymentTextBox.Text == "")//Checking the fields if it is empty
             {
                 MessageBox.Show("Missing Information!!", "Warning", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
             }
@@ -58,7 +54,7 @@ namespace LibraryRegisterationSystem
                         MessageBox.Show("Email must contain '@' and end with '.com'!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-                    con.Open();
+                    con.Open();// Adding entered infotrmation into database.
                     string query = "INSERT INTO StudentsTbl (Name, Age, Phone, Email, Country, [Monthly Payment]) VALUES (@Name, @Age, @Phone, @Email, @Country, @MonthlyPayment)";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@Name", nameTextBox.Text);
@@ -69,9 +65,8 @@ namespace LibraryRegisterationSystem
                     cmd.Parameters.AddWithValue("@MonthlyPayment", mPaymentTextBox.Text);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Student Successfully registered", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    refresh();
-                    con.Close();
+                    con.Close();// Closing the connection after finishing process of adding
+                    Refresh();// Refreshing the field method
                 }
                 catch (Exception ex)
                 {
@@ -80,7 +75,8 @@ namespace LibraryRegisterationSystem
                 }
             }
         }
-        private void refresh()
+
+        private void Refresh()// Emptying the fields
         {
             nameTextBox.Text = "";
             ageTextBox.Text = "";
@@ -89,9 +85,20 @@ namespace LibraryRegisterationSystem
             countryComboBox.Text = "";
             mPaymentTextBox.Text = "";
         }
-        private void resetButton_Click(object sender, EventArgs e)
+
+        private void resetButton_Click(object sender, EventArgs e)// Reseting the fields
         {
-            refresh();
+            Refresh();
+        }
+
+        private void countryComboBox_Validating(object sender, CancelEventArgs e)// User can only select items that are in combo box
+        {
+            ComboBox comboBox = sender as ComboBox;
+            if (!comboBox.Items.Contains(comboBox.Text))
+            {
+                MessageBox.Show("Please select a valid country from the list.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true; // Prevents the user from leaving the ComboBox
+            }
         }
     }
 }

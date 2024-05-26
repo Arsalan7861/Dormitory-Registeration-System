@@ -105,6 +105,7 @@
             this.signInButton.TabIndex = 8;
             this.signInButton.Text = "Sign in";
             this.signInButton.UseVisualStyleBackColor = true;
+            this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
             // resetButton
             // 
@@ -116,6 +117,7 @@
             this.resetButton.TabIndex = 9;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // pictureBox4
             // 
