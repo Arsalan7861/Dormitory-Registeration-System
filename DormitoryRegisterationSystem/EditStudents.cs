@@ -103,7 +103,7 @@ namespace DormitoryRegisterationSystem
         {
             if (key == 0)
             {
-                MessageBox.Show("Select the student to delete.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Select the student to delete!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -113,7 +113,7 @@ namespace DormitoryRegisterationSystem
                     string query = "delete from StudentsTbl where [Student Id]=" + key + ";";// Brings student from database according to its id
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Student deleted successfully", "Successfully Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);                    
+                    MessageBox.Show("Student deleted successfully", "Successfully Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     con.Close();// Closing the connection after finishing the process
                     Refresh();// Refreshing the fields
                     ClearSelectionDataGrid(); // Clearing the selection
@@ -128,7 +128,7 @@ namespace DormitoryRegisterationSystem
 
         private void updateButton_Click(object sender, EventArgs e)// Updating the information of selected student and adds it to database
         {
-            if (key == 0 || nameTextBox.Text == "" || ageTextBox.Text == "" || phoneTextBox.Text == "" || emailTextBox.Text == "" || countryComboBox.Text == "" || mPaymentTextBox.Text == "")// Controling if the fields are empty or not
+            if (nameTextBox.Text == "" || ageTextBox.Text == "" || phoneTextBox.Text == "" || emailTextBox.Text == "" || countryComboBox.Text == "" || mPaymentTextBox.Text == "")// Controling if the fields are empty or not
             {
                 MessageBox.Show("Missing Information!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -136,6 +136,10 @@ namespace DormitoryRegisterationSystem
             {
                 try
                 {
+                    if (key == 0)//Controls if student is selected to update or not                    
+                    {
+                        MessageBox.Show("Select the Student to update!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                    }
                     // Validate numeric fields
                     if (!int.TryParse(ageTextBox.Text, out int age) || !long.TryParse(phoneTextBox.Text, out long phone) || !decimal.TryParse(mPaymentTextBox.Text, out decimal monthlyPayment))
                     {
@@ -148,11 +152,17 @@ namespace DormitoryRegisterationSystem
                         MessageBox.Show("Email must contain '@' and end with '.com'!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
+                    // Validate country
+                    if (!countryComboBox.Items.Contains(countryComboBox.Text))
+                    {
+                        MessageBox.Show("Country must be one of the listed items!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     con.Open();// Starts the connection
-                    string query = "update StudentsTbl set Name='"+ nameTextBox.Text+"', Age='"+ageTextBox.Text+"', Phone='"+phoneTextBox.Text+"', Email='"+emailTextBox.Text+"', Country='"+countryComboBox.Text+"', [Monthly Payment]='"+mPaymentTextBox.Text+"' where [Student Id]="+key+";";// Updates the data
+                    string query = "update StudentsTbl set Name='" + nameTextBox.Text + "', Age='" + ageTextBox.Text + "', Phone='" + phoneTextBox.Text + "', Email='" + emailTextBox.Text + "', Country='" + countryComboBox.Text + "', [Monthly Payment]='" + mPaymentTextBox.Text + "' where [Student Id]=" + key + ";";// Updates the data
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Student updated successfully", "Successfully Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);                    
+                    MessageBox.Show("Student updated successfully", "Successfully Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     con.Close();// Closing the conncetion after updating
                     Refresh();
                     ClearSelectionDataGrid();

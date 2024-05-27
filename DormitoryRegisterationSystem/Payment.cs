@@ -61,6 +61,12 @@ namespace DormitoryRegisterationSystem
                         MessageBox.Show("Student ID and Amount must be a numeric value!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
+                    // Validate month
+                    if (!paymentComboBox.Items.Contains(paymentComboBox.Text))
+                    {
+                        MessageBox.Show("Month must be one of the listed items!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     // Check if StudentId exists in StudentsTbl
                     con.Open();
                     string checkStudentQuery = "SELECT COUNT(*) FROM StudentsTbl WHERE [Student Id] = @StudentId";
@@ -169,7 +175,7 @@ namespace DormitoryRegisterationSystem
 
         private void updateButton_Click(object sender, EventArgs e)// Updates selected payment's data
         {
-            if (key == 0 || paymentComboBox.Text == "" || studentIDTextBox.Text == "" || amountTextBox.Text == "")
+            if (paymentComboBox.Text == "" || studentIDTextBox.Text == "" || amountTextBox.Text == "")
             {
                 MessageBox.Show("Missing Information!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -177,7 +183,37 @@ namespace DormitoryRegisterationSystem
             {
                 try
                 {
+                    if (key == 0)//Controls if payment is selected to update or not                    
+                    {
+                        MessageBox.Show("Select the Payment to update!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                    }
+                    //Validate numeric values
+                    if (!int.TryParse(studentIDTextBox.Text, out int studentId) || !decimal.TryParse(amountTextBox.Text, out decimal amount))
+                    {
+                        MessageBox.Show("Student ID and Amount must be a numeric value!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    // Validate month
+                    if (!paymentComboBox.Items.Contains(paymentComboBox.Text))
+                    {
+                        MessageBox.Show("Month must be one of the listed items!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    // Check if StudentId exists in StudentsTbl
                     con.Open();
+                    string checkStudentQuery = "SELECT COUNT(*) FROM StudentsTbl WHERE [Student Id] = @StudentId";
+                    SqlCommand checkStudentCmd = new SqlCommand(checkStudentQuery, con);
+                    checkStudentCmd.Parameters.AddWithValue("@StudentId", studentId);
+
+                    int studentExists = (int)checkStudentCmd.ExecuteScalar();
+
+                    if (studentExists == 0)
+                    {
+                        MessageBox.Show("Student does not exist!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        con.Close();
+                        return;
+                    }
+
                     string query = "update PaymentTbl set [Payment Month]='" + paymentComboBox.Text + "', [Student Id]='" + studentIDTextBox.Text + "', Amount='" + amountTextBox.Text + "' where PId=" + key + ";";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.ExecuteNonQuery();
@@ -220,6 +256,16 @@ namespace DormitoryRegisterationSystem
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
-        }        
+        }
+
+        private void paymentComboBox_Validating(object sender, CancelEventArgs e)// User can only select items that are in combo box
+        {
+            ComboBox comboBox = sender as ComboBox;
+            if (!comboBox.Items.Contains(comboBox.Text))
+            {
+                MessageBox.Show("Please select a valid month from the list.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true; // Prevents the user from leaving the ComboBox
+            }
+        }
     }
 }

@@ -54,6 +54,12 @@ namespace DormitoryRegisterationSystem
                         MessageBox.Show("Email must contain '@' and end with '.com'!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
+                    // Validate country
+                    if (!countryComboBox.Items.Contains(countryComboBox.Text))
+                    {
+                        MessageBox.Show("Country must be one of the listed items!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     con.Open();// Adding entered infotrmation into database.
                     string query = "INSERT INTO StudentsTbl (Name, Age, Phone, Email, Country, [Monthly Payment]) VALUES (@Name, @Age, @Phone, @Email, @Country, @MonthlyPayment)";
                     SqlCommand cmd = new SqlCommand(query, con);

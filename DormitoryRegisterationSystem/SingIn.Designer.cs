@@ -40,6 +40,7 @@
             this.exitPicBox = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.showPasswordCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -92,8 +93,9 @@
             this.passTextBox.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passTextBox.Location = new System.Drawing.Point(369, 143);
             this.passTextBox.Name = "passTextBox";
-            this.passTextBox.Size = new System.Drawing.Size(183, 45);
+            this.passTextBox.Size = new System.Drawing.Size(158, 45);
             this.passTextBox.TabIndex = 5;
+            this.passTextBox.UseSystemPasswordChar = true;
             // 
             // signInButton
             // 
@@ -160,12 +162,23 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // showPasswordCheckBox
+            // 
+            this.showPasswordCheckBox.AutoSize = true;
+            this.showPasswordCheckBox.Location = new System.Drawing.Point(533, 171);
+            this.showPasswordCheckBox.Name = "showPasswordCheckBox";
+            this.showPasswordCheckBox.Size = new System.Drawing.Size(18, 17);
+            this.showPasswordCheckBox.TabIndex = 11;
+            this.showPasswordCheckBox.UseVisualStyleBackColor = true;
+            this.showPasswordCheckBox.CheckedChanged += new System.EventHandler(this.showPasswordCheckBox_CheckedChanged);
+            // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(626, 297);
+            this.Controls.Add(this.showPasswordCheckBox);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.signInButton);
@@ -203,6 +216,7 @@
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox exitPicBox;
+        private System.Windows.Forms.CheckBox showPasswordCheckBox;
     }
 }
 

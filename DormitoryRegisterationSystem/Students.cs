@@ -58,7 +58,7 @@ namespace DormitoryRegisterationSystem
                 con.Open();//Starting the connection
                 string query = "SELECT * FROM StudentsTbl WHERE Name LIKE @Name";// Selecting from database according to name
                 SqlDataAdapter adapter = new SqlDataAdapter(query, con);
-                adapter.SelectCommand.Parameters.AddWithValue("@Name", $"%{searchTextBox.Text}");
+                adapter.SelectCommand.Parameters.AddWithValue("@Name", $"%{searchTextBox.Text}%");
                 var ds = new DataSet();
                 adapter.Fill(ds);
                 studentsDataGridView.DataSource = ds.Tables[0];

@@ -238,6 +238,8 @@
             // 
             // paymentComboBox
             // 
+            this.paymentComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.paymentComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.paymentComboBox.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentComboBox.FormattingEnabled = true;
             this.paymentComboBox.Items.AddRange(new object[] {
@@ -257,6 +259,7 @@
             this.paymentComboBox.Name = "paymentComboBox";
             this.paymentComboBox.Size = new System.Drawing.Size(169, 43);
             this.paymentComboBox.TabIndex = 47;
+            this.paymentComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.paymentComboBox_Validating);
             // 
             // deleteButton
             // 
@@ -295,9 +298,9 @@
             this.label5.ForeColor = System.Drawing.Color.Green;
             this.label5.Location = new System.Drawing.Point(440, 558);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(373, 37);
+            this.label5.Size = new System.Drawing.Size(346, 37);
             this.label5.TabIndex = 50;
-            this.label5.Text = "Click on the payment to be deleted or updated";
+            this.label5.Text = "Click on the payment to delete or update it";
             // 
             // pictureBox1
             // 

@@ -40,6 +40,7 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.backPicBox = new System.Windows.Forms.PictureBox();
             this.exitPicBox = new System.Windows.Forms.PictureBox();
+            this.studenNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitPicBox)).BeginInit();
@@ -174,6 +175,17 @@
             this.exitPicBox.TabStop = false;
             this.exitPicBox.Click += new System.EventHandler(this.exitPicBox_Click);
             // 
+            // studenNameLabel
+            // 
+            this.studenNameLabel.AutoSize = true;
+            this.studenNameLabel.Font = new System.Drawing.Font("Microsoft Uighur", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studenNameLabel.ForeColor = System.Drawing.Color.Green;
+            this.studenNameLabel.Location = new System.Drawing.Point(99, 99);
+            this.studenNameLabel.Name = "studenNameLabel";
+            this.studenNameLabel.Size = new System.Drawing.Size(159, 43);
+            this.studenNameLabel.TabIndex = 35;
+            this.studenNameLabel.Text = "Student Name:";
+            // 
             // Students
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -181,6 +193,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1044, 571);
+            this.Controls.Add(this.studenNameLabel);
             this.Controls.Add(this.backPicBox);
             this.Controls.Add(this.exitPicBox);
             this.Controls.Add(this.refreshButton);
@@ -212,5 +225,6 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.PictureBox backPicBox;
         private System.Windows.Forms.PictureBox exitPicBox;
+        private System.Windows.Forms.Label studenNameLabel;
     }
 }

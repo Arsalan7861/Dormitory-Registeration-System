@@ -42,5 +42,10 @@ namespace DormitoryRegisterationSystem
             emailTextBox.Text = "";
             passTextBox.Text = "";
         }
+
+        private void showPasswordCheckBox_CheckedChanged(object sender, EventArgs e)//When checked shows the password
+        {
+            this.passTextBox.UseSystemPasswordChar = !this.showPasswordCheckBox.Checked;
+        }
     }
 }
