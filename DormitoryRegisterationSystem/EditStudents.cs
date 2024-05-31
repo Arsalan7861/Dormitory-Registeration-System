@@ -84,12 +84,12 @@ namespace DormitoryRegisterationSystem
 
         private void Refresh()// Refreshes the fields, clears the selection of the row and the id of the selected student
         {
-            nameTextBox.Text = "";
-            ageTextBox.Text = "";
-            phoneTextBox.Text = "";
-            emailTextBox.Text = "";
+            nameTextBox.Clear();
+            ageTextBox.Clear();
+            phoneTextBox.Clear();
+            emailTextBox.Clear();
             countryComboBox.Text = "";
-            mPaymentTextBox.Text = "";
+            mPaymentTextBox.Clear();
             studentsDataGridView.ClearSelection();
             key = 0;
         }
@@ -110,18 +110,36 @@ namespace DormitoryRegisterationSystem
                 try
                 {
                     con.Open();// Starting the connection
-                    string query = "delete from StudentsTbl where [Student Id]=" + key + ";";// Brings student from database according to its id
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Student deleted successfully", "Successfully Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    con.Close();// Closing the connection after finishing the process
-                    Refresh();// Refreshing the fields
-                    ClearSelectionDataGrid(); // Clearing the selection
+                    // Check if the student exists in the Payment table
+                    string paymentCheckQuery = "SELECT COUNT(*) FROM PaymentTbl WHERE [Student Id] = @StudentId";
+                    SqlCommand paymentCheckCmd = new SqlCommand(paymentCheckQuery, con);
+                    paymentCheckCmd.Parameters.AddWithValue("@StudentId", key);
+                    int paymentCount = (int)paymentCheckCmd.ExecuteScalar();
+
+                    if (paymentCount > 0)
+                    {
+                        // Student exists in Payment table, show warning
+                        MessageBox.Show("Cannot delete student as they have payments recorded.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        con.Close();// Closing the connection after finishing the process
+                        Refresh();
+                    }
+                    else
+                    {
+                        // Student does not exist in Payment table, proceed with deletion
+                        string deleteQuery = "DELETE FROM StudentsTbl WHERE [Student Id] = @StudentId";
+                        SqlCommand deleteCmd = new SqlCommand(deleteQuery, con);
+                        deleteCmd.Parameters.AddWithValue("@StudentId", key);
+                        deleteCmd.ExecuteNonQuery();
+                        MessageBox.Show("Student deleted successfully", "Successfully Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        con.Close();// Closing the connection after finishing the process
+                        Refresh();// Refreshing the fields
+                        ClearSelectionDataGrid(); // Clearing the selection
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    con.Close();                    
                 }
             }
         }
@@ -170,7 +188,7 @@ namespace DormitoryRegisterationSystem
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    con.Close();                    
                 }
             }
         }
@@ -183,6 +201,24 @@ namespace DormitoryRegisterationSystem
                 MessageBox.Show("Please select a valid country from the list.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Cancel = true; // Prevents the user from leaving the ComboBox
             }
+        }
+
+        private void studentsDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            // Auto size columns and rows
+            studentsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            studentsDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // Wrap text in cells and set alignment
+            foreach (DataGridViewColumn column in studentsDataGridView.Columns)
+            {
+                column.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells; // or DataGridViewAutoSizeColumnMode.Fill
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // or any other alignment
+            }
+
+            // Clear any initial selection
+            studentsDataGridView.ClearSelection();
         }
     }
 }

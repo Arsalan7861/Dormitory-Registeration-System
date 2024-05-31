@@ -70,26 +70,26 @@ namespace DormitoryRegisterationSystem
                     cmd.Parameters.AddWithValue("@Country", countryComboBox.Text);
                     cmd.Parameters.AddWithValue("@MonthlyPayment", mPaymentTextBox.Text);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Student Successfully registered", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Student Successfully registered", "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     con.Close();// Closing the connection after finishing process of adding
                     Refresh();// Refreshing the field method
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    con.Close();
                 }
             }
         }
 
         private void Refresh()// Emptying the fields
         {
-            nameTextBox.Text = "";
-            ageTextBox.Text = "";
-            phoneTextBox.Text = "";
-            emailTextBox.Text = "";
+            nameTextBox.Clear();
+            ageTextBox.Clear();
+            phoneTextBox.Clear();
+            emailTextBox.Clear();
             countryComboBox.Text = "";
-            mPaymentTextBox.Text = "";
+            mPaymentTextBox.Clear();
         }
 
         private void resetButton_Click(object sender, EventArgs e)// Reseting the fields

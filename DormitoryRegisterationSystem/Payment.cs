@@ -33,8 +33,8 @@ namespace DormitoryRegisterationSystem
         private void Refresh()// Emptying the fields, clears selection of the row and the id
         {
             paymentComboBox.Text = "";
-            studentIDTextBox.Text = "";
-            amountTextBox.Text = "";
+            studentIDTextBox.Clear();
+            amountTextBox.Clear();
             ClearSelection();
             key = 0;
         }
@@ -96,7 +96,7 @@ namespace DormitoryRegisterationSystem
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    con.Close();
                 }
             }
         }
@@ -168,7 +168,7 @@ namespace DormitoryRegisterationSystem
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    con.Close();                    
                 }
             }
         }
@@ -225,14 +225,14 @@ namespace DormitoryRegisterationSystem
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    con.Close();                    
                 }
             }
         }
 
         private void refreshButton_Click(object sender, EventArgs e)// Refreshes search field
         {
-            paymentsSearchTextBox.Text = "";
+            paymentsSearchTextBox.Clear();
         }
 
         private void searchButton_Click(object sender, EventArgs e)// Searches according to Student Id from database

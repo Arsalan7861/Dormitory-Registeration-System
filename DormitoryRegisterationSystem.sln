@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DormitoryRegisterationSystem", "DormitoryRegisterationSystem\DormitoryRegisterationSystem.csproj", "{B45A40C5-5854-40E0-987B-F88F70BBCE0E}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DormitoryRegisterationSystemSetup", "DormitoryRegisterationSystemSetup\DormitoryRegisterationSystemSetup.vdproj", "{D6C894D2-8E17-4706-A864-CC16240697DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{B45A40C5-5854-40E0-987B-F88F70BBCE0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B45A40C5-5854-40E0-987B-F88F70BBCE0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B45A40C5-5854-40E0-987B-F88F70BBCE0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6C894D2-8E17-4706-A864-CC16240697DC}.Debug|Any CPU.ActiveCfg = Debug
+		{D6C894D2-8E17-4706-A864-CC16240697DC}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

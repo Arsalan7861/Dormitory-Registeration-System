@@ -48,7 +48,7 @@ namespace DormitoryRegisterationSystem
 
         private void refreshButton_Click(object sender, EventArgs e)// Emptying the search field
         {
-            searchTextBox.Text = "";
+            searchTextBox.Clear();
         }
 
         private void searchButton_Click(object sender, EventArgs e)// Searching from database
@@ -69,6 +69,24 @@ namespace DormitoryRegisterationSystem
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
+        }
+
+        private void studentsDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            // Auto size columns and rows
+            studentsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            studentsDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // Wrap text in cells and set alignment
+            foreach (DataGridViewColumn column in studentsDataGridView.Columns)
+            {
+                column.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells; // or DataGridViewAutoSizeColumnMode.Fill
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // or any other alignment
+            }
+
+            // Clear any initial selection
+            studentsDataGridView.ClearSelection();
         }
     }
 }
