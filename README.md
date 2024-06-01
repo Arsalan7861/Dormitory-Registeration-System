@@ -1,4 +1,4 @@
-# Dormitory Registeration System Project for Dormitory's Office
+# Dormitory Registeration System Project for Dormitory's Office\n
 Things that are needed to have for running the project:
 1- .NET framework 4.7.2
 2- Microsoft SQL Server Management Studio
